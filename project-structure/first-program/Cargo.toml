@@ -3,4 +3,12 @@ name = "first-program"
 version = "0.1.0"
 edition = "2024"
 
+[[bin]]
+name = "first-program"
+path="src/main.rs"
+
+[[bin]]
+name = "second-program"
+path="src/summary.rs"
+
 [dependencies]
