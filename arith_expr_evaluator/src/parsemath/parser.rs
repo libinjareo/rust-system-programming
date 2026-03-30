@@ -18,7 +18,7 @@ impl <'a> Parser<'a> {
         let mut lexer = Tokenizer::new(expr);
         let cur_token = match lexer.next() {
             Some(t) => t,
-            Node => return Err(ParseError::InvalidOperator("Invalid character".into())),
+            None => return Err(ParseError::InvalidOperator("Invalid character".into())),
         };
 
         Ok(Parser{
@@ -164,7 +164,6 @@ impl std::convert::From<std::boxed::Box<dyn std::error::Error>> for ParseError {
 #[cfg(test)]
 mod tests {
     use crate::parsemath::ast::Node::{Add,Multiply,Number};
-    use crate::parsemath::token::OperPrec::MulDiv;
     use super::*;
 
     #[test]
